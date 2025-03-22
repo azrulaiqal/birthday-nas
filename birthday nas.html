@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday!</title>
+    <style>
+        body {
+            background-color: maroon; /* Set background color to maroon */
+            color: white; /* Set default text color to white for better contrast */
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center; /* Center content horizontally */
+            align-items: center; /* Center content vertically */
+            min-height: 100vh; /* Ensure the body takes up the full viewport height */
+        }
+
+        .container {
+            padding: 20px;
+            max-width: 1200px; /* Limit container width for larger screens */
+            width: 100%; /* Ensure container takes full width on smaller screens */
+        }
+
+        .title {
+            font-size: 2.5em; /* Smaller font size for mobile */
+            color: green; /* Set title color to green */
+            margin-bottom: 20px;
+        }
+
+        .image-row {
+            display: flex;
+            flex-direction: column; /* Stack images vertically on mobile */
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .image-container {
+            border: 5px solid green; /* Add green border around images */
+            padding: 10px;
+            background-color: white; /* Set background color for image containers */
+            width: 300px; /* Fixed width for image containers */
+            height: 300px; /* Fixed height for image containers */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .image-container img {
+            width: 100%; /* Ensure the image fills the container */
+            height: 100%; /* Ensure the image fills the container */
+            object-fit: cover; /* Maintain aspect ratio and cover the container */
+        }
+
+        .caption {
+            font-size: 1.2em; /* Smaller font size for mobile */
+            color: maroon; /* Set caption color to maroon */
+            margin-top: 10px;
+        }
+
+        .btn {
+            background-color: green; /* Set button background color to green */
+            color: white;
+            padding: 15px 30px;
+            font-size: 1.2em;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            width: 80%; /* Make button wider for easier tapping */
+            max-width: 300px; /* Limit button width on larger screens */
+        }
+
+        .btn:hover {
+            background-color: darkgreen; /* Darker green on hover */
+        }
+
+        .popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: white;
+            padding: 20px;
+            border: 5px solid green;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            width: 90%; /* Make popup responsive */
+            max-width: 400px; /* Limit popup width on larger screens */
+        }
+
+        .popup p {
+            color: maroon; /* Set popup text color to maroon */
+            font-size: 1.2em; /* Smaller font size for mobile */
+        }
+
+        .popup-close {
+            background-color: green; /* Set close button color to green */
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            float: right;
+            font-size: 1em;
+        }
+
+        .popup-close:hover {
+            background-color: darkgreen; /* Darker green on hover */
+        }
+
+        .video-section {
+            margin-top: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .video-section video {
+            width: 100%; /* Make video responsive */
+            max-width: 300px; /* Limit video width */
+            height: auto; /* Maintain aspect ratio */
+        }
+
+        .video-section .caption {
+            color: green; /* Set video caption color to green */
+            font-size: 1.2em; /* Smaller font size for mobile */
+            margin-top: 10px;
+        }
+
+        /* Media Query for Larger Screens */
+        @media (min-width: 768px) {
+            .title {
+                font-size: 3em; /* Larger font size for desktop */
+            }
+
+            .image-row {
+                flex-direction: row; /* Display images side by side on larger screens */
+                justify-content: center; /* Center images horizontally */
+            }
+
+            .caption {
+                font-size: 1.5em; /* Larger font size for desktop */
+            }
+
+            .popup p {
+                font-size: 1.5em; /* Larger font size for desktop */
+            }
+
+            .video-section .caption {
+                font-size: 1.5em; /* Larger font size for desktop */
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">Happy Birthday NAS!!!!!!!!!</div>
+        <div class="image-row">
+            <div class="image-container">
+                <img src="NAS.jpg" alt="Image 1">
+                <div class="caption">HAPPY BIRTHDAY</div>
+            </div>
+            <div class="image-container">
+                <img src="NAS 2.jpg" alt="Image 2">
+                <div class="caption">NAS!!!!!!!!</div>
+            </div>
+        </div>
+        <!-- Video Section Below Images -->
+        <div class="video-section">
+            <video controls width="300" height="300">
+                <source src="NAS.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <p class="caption">LOOK AT THIS PRETTY HELL BITCH!</p>
+        </div>
+        <button class="btn" onclick="showPopup()">Click Me!</button>
+    </div>
+    <div class="popup" id="popup">
+        <button class="popup-close" onclick="closePopup()">X</button>
+        <p>HAPPY BIRTHDAY NAS SEMOGA DIPANJANGKAN UMUR DIMURAHKAN REZEKI DAN SENTIASA SLAYYYYY!!!</p>
+    </div>
+
+    <audio id="bg-music">
+        <source src="BIRTHDAY.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+    <script>
+        function showPopup() {
+            var popup = document.getElementById('popup');
+            var music = document.getElementById('bg-music');
+            popup.style.display = 'block';
+            music.play();
+        }
+        function closePopup() {
+            var popup = document.getElementById('popup');
+            var music = document.getElementById('bg-music');
+            popup.style.display = 'none';
+            music.pause();
+        }
+    </script>
+</body>
+</html>
